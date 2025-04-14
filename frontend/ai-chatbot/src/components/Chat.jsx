@@ -3,6 +3,7 @@ import ChatMessage from "./ChatMessage";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ChatMessage.css"; // for typing animation
+import { data } from "autoprefixer";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -30,7 +31,7 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3000/api/chat', {
+      const response = await fetch('http://localhost:3000/app/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),
@@ -47,7 +48,7 @@ const Chat = () => {
       console.error('Error:', error);
       setMessages(prev => [
         ...prev.slice(0, -1),
-        { text: 'Sorry, there was an error processing your request.', isAi: true }
+        { text: data.reply, isAi: true }
       ]);
     } finally {
       setIsLoading(false);
@@ -59,7 +60,8 @@ const Chat = () => {
       {/* Header */}
       <header className="bg-white border-bottom shadow-sm py-3 px-4">
         <div className="container">
-          <h1 className="h4 fw-bold m-0 text-primary">Lead Bot Ai <span className="text-dark">Chat Assistant</span></h1>
+          <h1 className="h4 fw-bold m-0 text-primary">LeadBot <span className="text-dark">Chat Assistant</span></h1>
+          <p className="text-muted small mb-0 m1-auto">by Jinuka</p>
         </div>
       </header>
 

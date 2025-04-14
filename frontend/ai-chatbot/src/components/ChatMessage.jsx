@@ -24,7 +24,7 @@ const ChatMessage = ({ message, isAi }) => {
           {/* Message */}
           <div className="flex-grow-1">
             <h6 className={`fw-semibold mb-1 ${isAi ? 'text-primary' : 'text-white'}`}>
-              {isAi ? 'Progskill AI Assistant' : 'You'}
+              {isAi ? 'LeadBot Ai Assistant' : 'You'}
             </h6>
 
             {isTyping ? (
